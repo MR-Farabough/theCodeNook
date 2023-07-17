@@ -12,7 +12,9 @@ This will be a place for developers to
 
 - Show off projects
 
-We have reserved the domain `thecodenook.dev`
+We have reserved the domain [thecodenook.dev](https://thecodenook.dev)
+
+Check out `DESIGNDOC.md` for further updates on development
 
 More information will become available when there is an update 😁
 
