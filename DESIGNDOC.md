@@ -10,6 +10,14 @@ My goal is to create the one stop shop for _Developers_ to discuss `projects`, `
 
 ## Color Scheme
 
+<pre>
+1. Darkest: Background or header
+2. Dark: Text or secondary elements
+3. Mid: Primary content background
+4. Light: Buttons or accents
+5. Lightest: Highlights or borders
+</pre>
+
 **Dark Mode**
 
 - 231c07, 1a321c, 6b9080, a4c3b2, cce3de
