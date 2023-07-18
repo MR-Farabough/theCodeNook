@@ -22,12 +22,12 @@ My goal is to create the one stop shop for _Developers_ to discuss `projects`, `
 
 - 231c07, 1a321c, 6b9080, a4c3b2, cce3de
 
-![darkGreen](src/themeColors/darkGreen.jpg)
+![darkGreen](src/designAssets/darkGreen.jpg)
 
 **Light Mode**
 
 - 6B9080, A4C3B2, CCE3DE, EAF4F4, F6FFF8
 
-![lightGreen](src/themeColors/ivyGreen.jpg)
+![lightGreen](src/designAssets/ivyGreen.jpg)
 
 > Created and developed by Michael Farabough
