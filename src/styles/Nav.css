@@ -1,0 +1,44 @@
+.nav {
+	display: flex;
+	justify-content: space-between;
+	padding: 0.5em;
+	height: 3em;
+}
+
+.nav-search {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.home-btn {
+	min-width: 8em;
+}
+
+.nav-assets {
+	display: flex;
+	gap: 3em;
+}
+
+.theme-slider {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	padding: 0.05em;
+	border: 1px solid black;
+	width: 5em;
+	border-radius: 1em;
+}
+
+.icon-img {
+	cursor: pointer;
+	height: 3em;
+}
+
+.slider-img {
+	height: 2em;
+}
+
+.mobile-nav-deactive {
+	display: flex;
+	gap: 3em;
+}
