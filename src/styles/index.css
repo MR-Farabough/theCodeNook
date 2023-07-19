@@ -1,0 +1,39 @@
+:root {
+	--dm-color-one: #231c07;
+	--dm-color-two: #1a321c;
+	--dm-color-three: #6b9080;
+	--dm-color-four: #a4c3b2;
+	--dm-color-five: #cce3de;
+	--lm-color-one: #6b9080;
+	--lm-color-two: #a4c3b2;
+	--lm-color-three: #cce3de;
+	--lm-color-four: #eaf4f4;
+	--lm-color-five: #f6fff8;
+}
+
+* {
+	padding: 0px;
+	margin: 0px;
+	font-size: 100%;
+	vertical-align: baseline;
+	font-family: 'Alata';
+	color: var(--dm-color-two);
+}
+
+button {
+	cursor: pointer;
+	padding: 0.5em;
+	border-radius: 0.75em;
+	border: 1px solid var(--dm-color-three);
+	background-color: var(--dm-color-four);
+}
+
+input {
+	padding: 0.5em;
+	border-radius: 1em;
+}
+
+button:hover {
+	box-shadow: 1px 1px 1px var(--lm-color-one);
+	transform: scale(101%);
+}
