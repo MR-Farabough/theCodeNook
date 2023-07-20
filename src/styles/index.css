@@ -20,12 +20,16 @@
 	color: var(--dm-color-two);
 }
 
+body {
+	background-color: #a4c3b2;
+}
+
 button {
 	cursor: pointer;
 	padding: 0.5em;
 	border-radius: 0.75em;
 	border: 1px solid var(--dm-color-three);
-	background-color: var(--dm-color-four);
+	background-color: var(--dm-color-five);
 }
 
 input {
