@@ -1,6 +1,9 @@
 import '../styles/Nav.css';
 import ProfileDropDown from './ProfileDropDown';
 import ViewMode from './ViewMode';
+import plusPNG from '../assets/plus.png';
+import mailPNG from '../assets/mail.png';
+import userPNG from '../assets/user.png';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -18,9 +21,9 @@ const Nav = () => {
 				</button>
 				<input className="nav-search" type="text" placeholder="🔍 Search" />
 				<div className="nav-assets">
-					<img className="icon-img" src="/plus.png" alt="plus" />
+					<img className="icon-img" src={plusPNG} alt="plus" />
 					<div className="mobile-nav-deactive">
-						<img className="icon-img" src="/mail.png" alt="mail" />
+						<img className="icon-img" src={mailPNG} alt="mail" />
 						<ViewMode />
 					</div>
 					<div className="profile-div">
@@ -31,7 +34,7 @@ const Nav = () => {
 									: setDropDownStatus(false);
 							}}
 							className="user-img"
-							src="/user.png"
+							src={userPNG}
 							alt="user"
 						/>
 						{profileDropDownStatus && <ProfileDropDown />}
