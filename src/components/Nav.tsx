@@ -18,9 +18,9 @@ const Nav = () => {
 				</button>
 				<input className="nav-search" type="text" placeholder="🔍 Search" />
 				<div className="nav-assets">
-					<img className="icon-img" src="src/assets/plus.png" alt="plus" />
+					<img className="icon-img" src="/plus.png" alt="plus" />
 					<div className="mobile-nav-deactive">
-						<img className="icon-img" src="src/assets/mail.png" alt="mail" />
+						<img className="icon-img" src="/mail.png" alt="mail" />
 						<ViewMode />
 					</div>
 					<div className="profile-div">
@@ -31,7 +31,7 @@ const Nav = () => {
 									: setDropDownStatus(false);
 							}}
 							className="user-img"
-							src="src/assets/user.png"
+							src="/user.png"
 							alt="user"
 						/>
 						{profileDropDownStatus && <ProfileDropDown />}
