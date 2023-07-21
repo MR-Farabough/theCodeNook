@@ -2,19 +2,21 @@ import '../styles/Nav.css';
 import handleWindowResize from '../functions/handleWindowResize';
 import ProfileDropDown from './ProfileDropDown';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
 	const [profileDropDownStatus, setDropDownStatus] = useState<boolean>(false);
+	const navigate = useNavigate();
 	handleWindowResize();
-	const handleProfileDropDown = () => {
-		profileDropDownStatus == false
-			? setDropDownStatus(true)
-			: setDropDownStatus(false);
+	const handleHomeClick = () => {
+		navigate('/');
 	};
 	return (
 		<>
 			<nav className="nav">
-				<button className="home-btn">The Code Nook</button>
+				<button onClick={handleHomeClick} className="home-btn">
+					The Code Nook
+				</button>
 				<input className="nav-search" type="text" placeholder="🔍 Search" />
 				<div className="nav-assets">
 					<img className="icon-img" src="src/assets/plus.png" alt="plus" />
@@ -30,7 +32,11 @@ const Nav = () => {
 					</div>
 					<div className="profile-div">
 						<img
-							onClick={handleProfileDropDown}
+							onClick={() => {
+								profileDropDownStatus == false
+									? setDropDownStatus(true)
+									: setDropDownStatus(false);
+							}}
 							className="user-img"
 							src="src/assets/user.png"
 							alt="user"
