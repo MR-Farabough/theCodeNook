@@ -1,5 +1,4 @@
 import '../styles/Nav.css';
-import handleWindowResize from '../functions/handleWindowResize';
 import ProfileDropDown from './ProfileDropDown';
 import ViewMode from './viewMode';
 import { useState } from 'react';
@@ -8,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 const Nav = () => {
 	const [profileDropDownStatus, setDropDownStatus] = useState<boolean>(false);
 	const navigate = useNavigate();
-	handleWindowResize();
 	const handleHomeClick = () => {
 		navigate('/');
 	};
