@@ -39,5 +39,10 @@ input {
 
 button:hover {
 	box-shadow: 1px 1px 1px var(--lm-color-one);
-	transform: scale(101%);
+}
+
+button:hover,
+label:hover,
+#check:hover {
+	transform: scale(103%);
 }
