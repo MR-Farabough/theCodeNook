@@ -1,6 +1,6 @@
 import '../styles/Nav.css';
 import ProfileDropDown from './ProfileDropDown';
-import ViewMode from './viewMode';
+import ViewMode from './ViewMode';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
