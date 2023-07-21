@@ -1,6 +1,7 @@
 import '../styles/Nav.css';
 import handleWindowResize from '../functions/handleWindowResize';
 import ProfileDropDown from './ProfileDropDown';
+import ViewMode from './viewMode';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -22,13 +23,7 @@ const Nav = () => {
 					<img className="icon-img" src="src/assets/plus.png" alt="plus" />
 					<div className="mobile-nav-deactive">
 						<img className="icon-img" src="src/assets/mail.png" alt="mail" />
-						<div className="theme-slider">
-							<img
-								className="slider-img"
-								src="src/assets/sun.png"
-								alt="light mode"
-							/>
-						</div>
+						<ViewMode />
 					</div>
 					<div className="profile-div">
 						<img
