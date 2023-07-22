@@ -51,6 +51,20 @@
 	box-shadow: 1px 1px 1px #569cd6;
 }
 
+.mobile-nav-deactive {
+	display: flex;
+	align-items: center;
+}
+
+.mail {
+	height: 2.5em;
+}
+
+.mail:hover {
+	background-color: #569cd6;
+	border-radius: 0.35em;
+}
+
 .slider-img {
 	height: 2em;
 }
