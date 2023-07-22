@@ -51,18 +51,28 @@
 	box-shadow: 1px 1px 1px #569cd6;
 }
 
+.plus {
+	transition: background-color 0.3s ease;
+	border-radius: 1em;
+}
+
+.plus:hover {
+	background-color: rgba(86, 156, 214, 0.7);
+}
+
 .mobile-nav-deactive {
 	display: flex;
 	align-items: center;
 }
 
 .mail {
+	transition: background-color 0.3s ease;
+	border-radius: 0.35em;
 	height: 2.5em;
 }
 
 .mail:hover {
-	background-color: #569cd6;
-	border-radius: 0.35em;
+	background-color: rgba(86, 156, 214, 0.7);
 }
 
 .slider-img {
@@ -82,12 +92,13 @@
 	height: 3em;
 	max-width: 50px;
 	cursor: pointer;
+	border-radius: 1.5em;
+	transition: background-color 0.3s ease;
 }
 
 .user-img:hover {
 	transform: scale(105%);
-	background-color: #569cd6;
-	border-radius: 1.5em;
+	background-color: rgba(86, 156, 214, 0.7);
 }
 
 .mobile-nav-deactive {
@@ -118,6 +129,6 @@ a {
 }
 
 a:hover {
-	background-color: #569cd6;
+	background-color: rgba(86, 156, 214, 0.7);
 	border-radius: 0.25em;
 }
