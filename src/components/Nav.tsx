@@ -23,20 +23,19 @@ const Nav = () => {
 				<div className="nav-assets">
 					<img className="icon-img" src={plusPNG} alt="plus" />
 					<div className="mobile-nav-deactive">
-						<img className="icon-img" src={mailPNG} alt="mail" />
+						<img className="icon-img mail" src={mailPNG} alt="mail" />
 						<ViewMode />
 					</div>
-					<div className="profile-div">
-						<img
-							onClick={() => {
-								profileDropDownStatus == false
-									? setDropDownStatus(true)
-									: setDropDownStatus(false);
-							}}
-							className="user-img"
-							src={userPNG}
-							alt="user"
-						/>
+					<div
+						onMouseOver={() => {
+							profileDropDownStatus == false ? setDropDownStatus(true) : null;
+						}}
+						onMouseLeave={() => {
+							profileDropDownStatus == true ? setDropDownStatus(false) : null;
+						}}
+						className="profile-div"
+					>
+						<img className="user-img" src={userPNG} alt="user" />
 						{profileDropDownStatus && <ProfileDropDown />}
 					</div>
 				</div>
