@@ -21,7 +21,7 @@ const Nav = () => {
 				</button>
 				<input className="nav-search" type="text" placeholder="🔍 Search" />
 				<div className="nav-assets">
-					<img className="icon-img" src={plusPNG} alt="plus" />
+					<img className="icon-img plus" src={plusPNG} alt="plus" />
 					<div className="mobile-nav-deactive">
 						<img className="icon-img mail" src={mailPNG} alt="mail" />
 						<ViewMode />
