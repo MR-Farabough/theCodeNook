@@ -10,5 +10,3 @@ const viewMode = () => {
 };
 
 export default viewMode;
-
-// TODO: Change entire application to dark || light mode

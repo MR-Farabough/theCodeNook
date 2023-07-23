@@ -30,6 +30,9 @@ My goal is to create the one stop shop for _Developers_ to discuss `projects`, `
 
 ![lightGreen](src/designAssets/ivyGreen.jpg)
 
+**Minimal Blue**
+![minimal-blue](src/designAssets/minimalBlue.png)
+
 ## Element Layouts
 
 ### Navigation Bar

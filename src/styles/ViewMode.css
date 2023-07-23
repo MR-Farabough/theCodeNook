@@ -16,9 +16,8 @@ input[type='checkbox'].toggle + label::before {
 	content: '';
 	width: 5.25em;
 	height: 2.8em;
-	background-color: rgba(197, 217, 209);
-	border-radius: 1em;
-	margin-right: 0.25em;
+	background-color: #a9a9a9;
+	border-radius: 0.25em;
 	transition: background-color 200ms ease-in-out;
 }
 
@@ -31,13 +30,12 @@ input[type='checkbox'].toggle + label::after {
 	background: url(../assets/sun.png) no-repeat center center;
 	background-size: 5em;
 	font-size: 0.5em;
-	height: 0.9em;
-	left: 0.2em;
+	left: 0.25em;
 	width: 5em;
 	height: 6em;
 	color: white;
 	border-radius: 1em;
-	transition: background-color 200ms ease-in-out, transform 200ms ease-in-out;
+	transition: background-color 200ms ease-in-out, transform 250ms ease-in-out;
 }
 
 input[type='checkbox'].toggle:focus + label::before {
@@ -45,7 +43,7 @@ input[type='checkbox'].toggle:focus + label::before {
 }
 
 input[type='checkbox'].toggle:checked + label::before {
-	background-color: #6b9080;
+	background-color: rgba(86, 156, 214, 0.7);
 }
 
 input[type='checkbox'].toggle:checked + label::after {
