@@ -14,7 +14,7 @@ input[type='checkbox'].toggle + label {
 
 input[type='checkbox'].toggle + label::before {
 	content: '';
-	width: 5.25em;
+	width: 6em;
 	height: 2.8em;
 	background-color: #a9a9a9;
 	border-radius: 0.25em;
