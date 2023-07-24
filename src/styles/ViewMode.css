@@ -18,6 +18,7 @@ input[type='checkbox'].toggle + label::before {
 	height: 2.8em;
 	background-color: #a9a9a9;
 	border-radius: 0.25em;
+	padding: 0.05em;
 	transition: background-color 200ms ease-in-out;
 }
 
