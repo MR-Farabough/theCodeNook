@@ -1,3 +1,43 @@
+/* >> DARK-GREEN << */
+
+/* 
+Dark-brown
+#231c07
+
+Dark-green
+#1a321c
+
+Green
+#6b9080 
+
+Pond-green
+#a4c3b2
+
+Light-green
+#cce3de 
+*/
+
+/* >> LIGHT-GREEN << */
+
+/* 
+Green
+#6B9080
+
+Pond-green
+#A4C3B2
+
+Light-green
+#CCE3DE
+
+White-green
+#EAF4F4
+
+Hyper-green
+#F6FFF8 
+*/
+
+/* >> BLUE << */
+
 /* 
 Light-grey
 #f7f7f7
@@ -14,39 +54,3 @@ Light-blue
 Dark-blue
 #00416a 
 */
-
-* {
-	padding: 0px;
-	margin: 0px;
-	font-size: 100%;
-	vertical-align: baseline;
-	font-family: 'Alata';
-	color: #343a40;
-}
-
-body {
-	background-color: #f7f7f7;
-}
-
-button {
-	cursor: pointer;
-	padding: 0.5em;
-	border-radius: 0.35em;
-	border: 1px solid;
-	background-color: #f7f7f7;
-}
-
-input {
-	padding: 0.5em;
-	border-radius: 0.5em;
-}
-
-button:hover {
-	box-shadow: 2px 2px 2px #569cd6;
-}
-
-button:hover,
-label:hover,
-#check:hover {
-	transform: scale(103%);
-}
