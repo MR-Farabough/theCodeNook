@@ -1,0 +1,77 @@
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes backRotate {
+	0% {
+		transform: rotate(360deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+@keyframes slide {
+	0% {
+		width: 1px;
+	}
+	100% {
+		width: 280px;
+	}
+}
+
+.main-nav {
+	position: sticky;
+	top: 0;
+	padding: 5px;
+	display: flex;
+	width: 100vw;
+	height: 35px;
+	border-bottom: 1px solid grey;
+}
+
+.main-title {
+	margin: auto;
+}
+
+.main-side-elements {
+	position: absolute;
+	right: 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 25%;
+	height: 100%;
+}
+
+.nav-link {
+	cursor: pointer;
+}
+
+.search-icon,
+.active-search-icon {
+	cursor: pointer;
+	height: 35px;
+}
+
+.search-icon {
+	animation: backRotate 200ms linear;
+}
+
+.active-search-icon {
+	z-index: 9;
+	animation: rotate 200ms linear;
+}
+
+.activeSearch {
+	position: absolute;
+	animation: slide 200ms linear;
+	width: 380px;
+	height: 20px;
+	padding: 5px;
+}
