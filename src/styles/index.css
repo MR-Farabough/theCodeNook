@@ -54,3 +54,19 @@ Light-blue
 Dark-blue
 #00416a 
 */
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+button {
+	cursor: pointer;
+	padding-right: 15px;
+	padding-left: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: #cce3de;
+	border: 0px;
+	border-radius: 5px;
+}
