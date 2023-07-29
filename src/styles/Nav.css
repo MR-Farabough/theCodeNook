@@ -37,6 +37,7 @@
 
 .main-title {
 	margin: auto;
+	cursor: pointer;
 }
 
 .main-side-elements {
@@ -51,6 +52,10 @@
 
 .nav-link {
 	cursor: pointer;
+}
+
+.nav-link:hover {
+	border-bottom: 1px solid #6b9080;
 }
 
 .search-icon,

@@ -1,19 +1,33 @@
 import { useState } from 'react';
 import '../styles/Nav.css';
 import SubNav from './SubNav';
+import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
 	const [activeSearch, setActiveSearch] = useState<boolean>(false);
 	const handleActiveSearch = () => {
 		return activeSearch ? setActiveSearch(false) : setActiveSearch(true);
 	};
+	const navigate = useNavigate();
 	return (
 		<>
 			<nav className="main-nav">
-				<h1 className="main-title">The Code Nook</h1>
+				<h1 onClick={() => navigate('/')} className="main-title">
+					The Code Nook
+				</h1>
 				<div className="main-side-elements">
-					<h4 className="nav-link donation">Donation</h4>
-					<h4 className="nav-link newsletter">Newsletter</h4>
+					<h4
+						onClick={() => navigate('/donation')}
+						className="nav-link donation"
+					>
+						Donation
+					</h4>
+					<h4
+						onClick={() => navigate('/newsletter')}
+						className="nav-link newsletter"
+					>
+						Newsletter
+					</h4>
 					<button>Sign In</button>
 					{activeSearch && (
 						<>
