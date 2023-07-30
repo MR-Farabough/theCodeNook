@@ -1,0 +1,36 @@
+@keyframes listFade {
+	0% {
+		opacity: 0%;
+	}
+	100% {
+		opacity: 1000%;
+	}
+}
+
+.sub-nav {
+	display: flex;
+	height: 20px;
+	align-items: center;
+	justify-content: space-around;
+	margin: auto;
+	border-bottom: 1px solid black;
+}
+
+.sub-menu {
+	height: fit-content;
+}
+
+.subMenu-topic:hover {
+	cursor: pointer;
+	height: fit-content;
+	width: fit-content;
+	background-color: 1px solid #6b9080;
+}
+
+.subNav-dropdown {
+	animation: listFade 250ms linear;
+	position: absolute;
+	height: fit-content;
+	width: fit-content;
+	background-color: #a4c3b2;
+}
