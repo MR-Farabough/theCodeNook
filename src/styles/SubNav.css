@@ -33,4 +33,6 @@
 	height: fit-content;
 	width: fit-content;
 	background-color: #a4c3b2;
+  padding: 5px;
+	border-radius: 5px;
 }
