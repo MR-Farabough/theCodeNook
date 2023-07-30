@@ -14,17 +14,20 @@
 	justify-content: space-around;
 	margin: auto;
 	border-bottom: 1px solid black;
+	background: #a4c3b2;
 }
 
 .sub-menu {
 	height: fit-content;
 }
 
+.subMenu-topic {
+	padding: 2px;
+	border-radius: 5px;
+}
+
 .subMenu-topic:hover {
 	cursor: pointer;
-	height: fit-content;
-	width: fit-content;
-	background-color: 1px solid #6b9080;
 }
 
 .subNav-dropdown {
@@ -33,6 +36,6 @@
 	height: fit-content;
 	width: fit-content;
 	background-color: #a4c3b2;
-  padding: 5px;
+	padding: 5px;
 	border-radius: 5px;
 }
