@@ -74,8 +74,9 @@
 
 .activeSearch {
 	position: absolute;
+	outline: 1px solid #6b9080;
 	animation: slide 200ms linear;
-	width: 380px;
+	width: 385px;
 	height: 20px;
 	padding: 5px;
 }
