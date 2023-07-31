@@ -38,7 +38,7 @@ const Header = () => {
 							<img
 								onClick={handleActiveSearch}
 								className="active-search-icon"
-								src="src/assets/search.png"
+								src={searchImage}
 								alt="Search-Icon"
 							/>
 						</>
