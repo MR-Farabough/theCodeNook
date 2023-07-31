@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import '../styles/Header.css';
 import Nav from './Nav';
+import searchImage from '../assets/search.png';
 import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
@@ -46,7 +47,7 @@ const Header = () => {
 						<img
 							onClick={handleActiveSearch}
 							className="search-icon"
-							src="src/assets/search.png"
+							src={searchImage}
 							alt="Search-Icon"
 						/>
 					)}

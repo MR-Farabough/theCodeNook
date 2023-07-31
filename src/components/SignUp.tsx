@@ -1,5 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import '../styles/SignUp.css';
+import githubLogo from '../assets/github.png';
+import appleLogo from '../assets/apple.png';
+import phoneLogo from '../assets/phone.png';
 
 const SignIn = () => {
 	const navigate = useNavigate();
@@ -30,21 +33,9 @@ const SignIn = () => {
 				<hr />
 			</div>
 			<div className="third-party-signup">
-				<img
-					className="thirdPartyLogo"
-					src="src/assets/github.png"
-					alt="github-logo"
-				/>
-				<img
-					className="thirdPartyLogo"
-					src="src/assets/apple.png"
-					alt="apple-logo"
-				/>
-				<img
-					className="thirdPartyLogo"
-					src="src/assets/phone.png"
-					alt="phone"
-				/>
+				<img className="thirdPartyLogo" src={githubLogo} alt="github-logo" />
+				<img className="thirdPartyLogo" src={appleLogo} alt="apple-logo" />
+				<img className="thirdPartyLogo" src={phoneLogo} alt="phone" />
 			</div>
 			<div className="lower-signup">
 				<p>Already Have an Account?</p>
