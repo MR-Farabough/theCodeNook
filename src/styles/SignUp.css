@@ -1,0 +1,74 @@
+.signUp-form {
+	background-color: #a4c3b2;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-direction: column;
+	width: 60%;
+	height: 80%;
+	margin: auto;
+	padding: 15px;
+	position: fixed;
+	border-radius: 50px;
+	top: 12.5%;
+	left: 20%;
+	right: 20%;
+}
+
+.input-option {
+	display: flex;
+	flex-direction: column;
+	margin: 5px;
+}
+
+.signUp-button {
+	margin-top: 15px;
+	background-color: white;
+}
+
+.lower-signup {
+	display: flex;
+	justify-content: space-between;
+	width: 15em;
+}
+
+.signIn-tag {
+	cursor: pointer;
+}
+
+.signIn-tag:hover {
+	border-bottom: 1px solid #6b9080;
+	color: white;
+}
+
+.or {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding: 5px;
+	border: 1px solid white;
+	color: grey;
+	background-color: white;
+	border-radius: 2px;
+	width: fit-content;
+}
+
+.signUp-seperator {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 15em;
+}
+
+.third-party-signup {
+	display: flex;
+	justify-content: space-evenly;
+	width: 15em;
+	margin-bottom: 15px;
+	padding: 10px;
+	border: 1px solid white;
+}
+
+.thirdPartyLogo {
+	cursor: pointer;
+	height: 35px;
+}

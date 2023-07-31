@@ -33,10 +33,16 @@ My goal is to create the one stop shop for _Developers_ to discuss `projects`, `
 **Minimal Blue**
 ![minimal-blue](src/designAssets/minimalBlue.png)
 
-## Element Layouts
+### Wide View
 
-### Navigation Bar
+![wide view](src/designAssets/wideView.jpg)
 
-![NavBar](src/designAssets/navLayout.jpg)
+### Medium View
+
+![medium view](src/designAssets/midView.jpg)
+
+### Mobile View
+
+![mobile view](src/designAssets/mobileView.jpg)
 
 > Created and developed by Michael Farabough
