@@ -1,3 +1,43 @@
+/* >> DARK-GREEN << */
+
+/* 
+Dark-brown
+#231c07
+
+Dark-green
+#1a321c
+
+Green
+#6b9080 
+
+Pond-green
+#a4c3b2
+
+Light-green
+#cce3de 
+*/
+
+/* >> LIGHT-GREEN << */
+
+/* 
+Green
+#6B9080
+
+Pond-green
+#A4C3B2
+
+Light-green
+#CCE3DE
+
+White-green
+#EAF4F4
+
+Hyper-green
+#F6FFF8 
+*/
+
+/* >> BLUE << */
+
 /* 
 Light-grey
 #f7f7f7
@@ -16,37 +56,59 @@ Dark-blue
 */
 
 * {
-	padding: 0px;
 	margin: 0px;
-	font-size: 100%;
-	vertical-align: baseline;
-	font-family: 'Alata';
-	color: #343a40;
+	padding: 0px;
 }
 
 body {
-	background-color: #f7f7f7;
+	background-color: #f6fff8;
 }
 
 button {
 	cursor: pointer;
-	padding: 0.5em;
-	border-radius: 0.35em;
-	border: 1px solid;
-	background-color: #f7f7f7;
-}
-
-input {
-	padding: 0.5em;
-	border-radius: 0.5em;
+	padding-right: 15px;
+	padding-left: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: #a4c3b2;
+	border: 0px;
+	border-radius: 5px;
+	width: 15em;
 }
 
 button:hover {
-	box-shadow: 2px 2px 2px #569cd6;
+	text-decoration: underline;
 }
 
-button:hover,
-label:hover,
-#check:hover {
-	transform: scale(103%);
+li {
+	list-style: inside circle;
+	cursor: pointer;
+	margin: 5px;
+}
+
+li:hover {
+	color: white;
+}
+
+label {
+	margin: 5px;
+}
+
+input {
+	padding: 5px;
+	width: 15em;
+	border-radius: 3px;
+	border: none;
+	height: 2em;
+}
+
+input:focus {
+	outline: 3px solid #6b9080;
+}
+
+hr {
+	width: 10em;
+	height: 2px;
+	background-color: white;
+	border: none;
 }
