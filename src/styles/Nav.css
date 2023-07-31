@@ -1,82 +1,37 @@
-@keyframes rotate {
+@keyframes listFade {
 	0% {
-		transform: rotate(0deg);
+		opacity: 0%;
 	}
 	100% {
-		transform: rotate(360deg);
+		opacity: 1000%;
 	}
 }
 
-@keyframes backRotate {
-	0% {
-		transform: rotate(360deg);
-	}
-	100% {
-		transform: rotate(0deg);
-	}
-}
-
-@keyframes slide {
-	0% {
-		width: 1px;
-	}
-	100% {
-		width: 280px;
-	}
-}
-
-.main-nav {
-	position: sticky;
-	top: 0;
-	padding: 5px;
+.sub-nav {
 	display: flex;
-	width: 100vw;
-	height: 35px;
-	border-bottom: 1px solid grey;
-}
-
-.main-title {
-	margin: auto;
-	cursor: pointer;
-}
-
-.main-side-elements {
-	position: absolute;
-	right: 0;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	width: 25%;
-	height: 100%;
-}
-
-.nav-link {
-	cursor: pointer;
-}
-
-.nav-link:hover {
-	border-bottom: 1px solid #6b9080;
-}
-
-.search-icon,
-.active-search-icon {
-	cursor: pointer;
-	height: 35px;
-}
-
-.search-icon {
-	animation: backRotate 200ms linear;
-}
-
-.active-search-icon {
-	z-index: 9;
-	animation: rotate 200ms linear;
-}
-
-.activeSearch {
-	position: absolute;
-	animation: slide 200ms linear;
-	width: 380px;
 	height: 20px;
+	align-items: center;
+	justify-content: space-around;
+	margin: auto;
+	border-bottom: 1px solid black;
+	background: #a4c3b2;
+}
+
+.sub-menu {
+	height: fit-content;
+}
+
+.subMenu-topic {
+	padding: 2px;
+	border-radius: 5px;
+}
+
+.subNav-dropdown {
+	animation: listFade 250ms linear;
+	position: absolute;
+	height: fit-content;
+	width: fit-content;
+	background-color: #a4c3b2;
 	padding: 5px;
+	border-radius: 5px;
 }
