@@ -60,6 +60,10 @@ Dark-blue
 	padding: 0px;
 }
 
+body {
+	background-color: #f6fff8;
+}
+
 button {
 	cursor: pointer;
 	padding-right: 15px;
@@ -69,6 +73,11 @@ button {
 	background-color: #a4c3b2;
 	border: 0px;
 	border-radius: 5px;
+	width: 15em;
+}
+
+button:hover {
+	text-decoration: underline;
 }
 
 li {
@@ -79,4 +88,27 @@ li {
 
 li:hover {
 	color: white;
+}
+
+label {
+	margin: 5px;
+}
+
+input {
+	padding: 5px;
+	width: 15em;
+	border-radius: 3px;
+	border: none;
+	height: 2em;
+}
+
+input:focus {
+	outline: 3px solid #6b9080;
+}
+
+hr {
+	width: 10em;
+	height: 2px;
+	background-color: white;
+	border: none;
 }
