@@ -107,8 +107,7 @@ input:focus {
 }
 
 hr {
-	width: 10em;
 	height: 2px;
-	background-color: white;
+	background-color: rgb(0, 0, 0);
 	border: none;
 }
