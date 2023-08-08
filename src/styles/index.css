@@ -111,3 +111,9 @@ hr {
 	background-color: rgb(0, 0, 0);
 	border: none;
 }
+
+.loading {
+	font-size: 35px;
+	position: absolute;
+	top: 45%;
+}
