@@ -43,7 +43,7 @@ const Profile = () => {
 			}
 		};
 		fetchUserStatus();
-	});
+	}, [user]);
 	return (
 		<div className="profile-container">
 			{pfpPicture && fullName && (
