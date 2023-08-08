@@ -2,14 +2,33 @@ import { useState } from 'react';
 import '../styles/Header.css';
 import Nav from './Nav';
 import searchImage from '../assets/search.png';
+import { getUserStatus } from '../functions/getUserStatus';
 import { useNavigate } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
+import { UserContext } from '../Router';
 
 const Header = () => {
+	const { user, setUser, setLoadStatus } = useContext(UserContext);
 	const [activeSearch, setActiveSearch] = useState<boolean>(false);
 	const handleActiveSearch = () => {
 		return activeSearch ? setActiveSearch(false) : setActiveSearch(true);
 	};
 	const navigate = useNavigate();
+	useEffect(() => {
+		const fetchUserStatus = async () => {
+			try {
+				const userStatus = await getUserStatus();
+				setUser(userStatus);
+				setLoadStatus(false);
+			} catch (error) {
+				console.error('Error fetching user status:', error);
+				setUser(null);
+				setLoadStatus(true);
+			}
+		};
+		fetchUserStatus();
+	}, []);
+
 	return (
 		<>
 			<header className="main-nav">
@@ -29,9 +48,17 @@ const Header = () => {
 					>
 						Newsletter
 					</h4>
-					<button className="sign-in-btn" onClick={() => navigate('/signup')}>
-						Sign In
-					</button>
+					{user && (
+						<button onClick={() => navigate('/profile')}>
+							{user.user_metadata.full_name}
+						</button>
+					)}
+					{!user && (
+						<button className="sign-in-btn" onClick={() => navigate('/signup')}>
+							Sign In
+						</button>
+					)}
+
 					{activeSearch && (
 						<>
 							<input className="activeSearch" type="text"></input>
