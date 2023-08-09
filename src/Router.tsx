@@ -13,13 +13,9 @@ export const UserContext = createContext<any>(null);
 export const LoadingContext = createContext<any>(false);
 const Router = () => {
 	const [user, setUser] = useState<null | Boolean>(null);
-	const [loadStatus, setLoadStatus] = useState<null | Boolean>(null);
-	// Figure out what is using the above state / context
 	return (
 		<>
-			<UserContext.Provider
-				value={{ user, setUser, loadStatus, setLoadStatus }}
-			>
+			<UserContext.Provider value={{ user, setUser }}>
 				<Header />
 				<main>
 					<Routes>
