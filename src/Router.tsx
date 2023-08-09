@@ -5,7 +5,6 @@ import errorPage from './components/errorPage';
 import Donation from './components/Donation';
 import Newsletter from './components/Newsletter';
 import SignUp from './components/SignUp';
-import SignIn from './components/SignIn';
 import { createContext, useState } from 'react';
 import Profile from './components/Profile';
 
@@ -23,7 +22,6 @@ const Router = () => {
 						<Route path="/donation" Component={Donation} />
 						<Route path="/newsletter" Component={Newsletter} />
 						<Route path="/signup" Component={SignUp} />
-						<Route path="/signin" Component={SignIn} />
 						<Route path="/profile" Component={Profile} />
 						<Route path="*" Component={errorPage} />
 					</Routes>
