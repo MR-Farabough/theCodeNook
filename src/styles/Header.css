@@ -25,6 +25,33 @@
 	}
 }
 
+@keyframes rotateRight {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(90deg);
+	}
+}
+
+@keyframes rotateLeft {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(90deg);
+	}
+}
+
+@keyframes revertBack {
+	0% {
+		transform: rotate(90deg);
+	}
+	100% {
+		transform: rotate(180deg);
+	}
+}
+
 .main-nav {
 	position: sticky;
 	top: 0;
@@ -32,6 +59,7 @@
 	display: flex;
 	height: 35px;
 	border-bottom: 1px solid grey;
+	background-color: #f6fff8;
 }
 
 .main-title {
@@ -51,6 +79,7 @@
 
 .nav-link {
 	cursor: pointer;
+	margin: 5px;
 }
 
 .nav-link:hover {
@@ -81,6 +110,65 @@
 	padding: 5px;
 }
 
-.sign-in-btn {
+.sign-in-btn,
+.profile-btn {
 	width: 8em;
+}
+
+.drop-down {
+	display: none;
+}
+
+.active-drop-down {
+	position: absolute;
+	background-color: #a4c3b2;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.drop-down-icons {
+	display: flex;
+	font-size: 2em;
+	margin-left: 10px;
+}
+
+.side-donation,
+.side-newsletter,
+.side-search {
+	margin: 10px;
+}
+
+.side-donation:hover,
+.side-newsletter:hover,
+.side-search:hover {
+	border-bottom: 2px solid #6b9080;
+}
+
+.lineOne.disabled,
+.lineTwo.disabled {
+	animation: revertBack 200ms linear;
+	transform: rotate(180deg);
+}
+
+.lineOne.active {
+	animation: rotateRight 200ms linear;
+	transform: rotate(90deg);
+}
+
+.lineTwo.active {
+	animation: rotateLeft 200ms linear;
+	transform: rotate(90deg);
+}
+
+@media (max-width: 1450px) {
+	/* TODO NEED TO HANDLE THIS DIFFERENTLY */
+	/* TODO Ability to show in drop down */
+	.nav-link {
+		display: none;
+	}
+
+	.drop-down {
+		display: block;
+		cursor: pointer;
+	}
 }

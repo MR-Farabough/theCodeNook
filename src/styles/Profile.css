@@ -1,0 +1,71 @@
+.profile-container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.upload-new-image {
+	margin: 15px;
+}
+
+.profile-top {
+	display: flex;
+	align-items: center;
+	margin-top: 30px;
+}
+
+.profile-bottom {
+	margin: 25px;
+}
+
+.user-profile-picture {
+	height: 15em;
+	border-radius: 35px;
+	border: 5px solid green;
+	cursor: pointer;
+}
+
+.user-info {
+	display: flex;
+}
+
+.db-input {
+	margin: 15px;
+	border: 1px solid green;
+}
+
+.sub-text {
+	margin: 15px;
+	font-size: 25px;
+}
+
+.hero-text {
+	font-size: 50px;
+}
+
+.user-name {
+	margin: 15px;
+	font-weight: 100;
+	font-size: 5em;
+}
+
+.job-name {
+	font-weight: 100;
+}
+
+.profile-btn {
+	margin: 1em;
+}
+
+.profile-btns {
+	display: flex;
+}
+
+@media (max-width: 750px) {
+	.user-info {
+		flex-direction: column;
+	}
+	.profile-btns {
+		flex-direction: column;
+	}
+}
