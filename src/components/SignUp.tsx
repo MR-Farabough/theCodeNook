@@ -5,7 +5,7 @@ import supabase from '../lib/supabaseClient';
 import { useEffect } from 'react';
 import { useContext } from 'react';
 import { UserContext } from '../Router';
-import { getUserStatus } from '../functions/getUserStatus';
+import { getUserStatus } from '../functions/DBGetUserStatus';
 
 const SignIn = () => {
 	const { setUser } = useContext(UserContext);
