@@ -12,12 +12,32 @@ const Header = () => {
 	const [activeSearch, setActiveSearch] = useState<boolean>(false);
 	const [activeDropDown, setDropDownStatus] = useState<boolean>(false);
 
+	const handleDockedSearch = () => {
+		// Handle Search
+	};
+
 	const handleActiveSearch = () => {
 		return activeSearch ? setActiveSearch(false) : setActiveSearch(true);
 	};
 
 	const handleDropDown = () => {
 		activeDropDown ? setDropDownStatus(false) : setDropDownStatus(true);
+	};
+
+	const handleAnimation = () => {
+		const lineOne = document.querySelector('.lineOne');
+		const lineTwo = document.querySelector('.lineTwo');
+		if (lineOne?.classList.contains('active') && lineTwo) {
+			lineOne.classList.remove('active');
+			lineTwo.classList.remove('active');
+			lineOne.classList.add('disabled');
+			lineTwo.classList.add('disabled');
+		} else {
+			lineOne?.classList.remove('disabled');
+			lineTwo?.classList.remove('disabled');
+			lineOne?.classList.add('active');
+			lineTwo?.classList.add('active');
+		}
 	};
 
 	const navigate = useNavigate();
@@ -37,42 +57,49 @@ const Header = () => {
 	return (
 		<>
 			<header className="main-nav">
-				<div onClick={handleDropDown} className="drop-down">
-					{/* TODO TWO LINES THAT ROTATE INTO X WHEN ACTIVE */}
-					||
+				<div className="drop-down">
+					<div
+						onClick={() => {
+							handleAnimation();
+							handleDropDown();
+						}}
+						className="drop-down-icons"
+					>
+						<div className="lineOne">|</div>
+						<div className="lineTwo">|</div>
+					</div>
 					{activeDropDown && (
 						<div className="active-drop-down">
 							<h4
-								onClick={() => navigate('/donation')}
-								className="nav-link donation"
+								onClick={() => {
+									navigate('/donation');
+									handleAnimation();
+									handleDropDown();
+								}}
+								className="donation side-donation"
 							>
 								Donation
 							</h4>
 							<h4
-								onClick={() => navigate('/newsletter')}
-								className="nav-link newsletter"
+								onClick={() => {
+									navigate('/newsletter');
+									handleAnimation();
+									handleDropDown();
+								}}
+								className="newsletter side-newsletter"
 							>
 								Newsletter
 							</h4>
-							{activeSearch && (
-								<>
-									<input className="activeSearch" type="text"></input>
-									<img
-										onClick={handleActiveSearch}
-										className="active-search-icon"
-										src={searchImage}
-										alt="Search-Icon"
-									/>
-								</>
-							)}
-							{!activeSearch && (
-								<img
-									onClick={handleActiveSearch}
-									className="search-icon"
-									src={searchImage}
-									alt="Search-Icon"
-								/>
-							)}
+							<img
+								onClick={() => {
+									handleDockedSearch();
+									handleAnimation();
+									handleDropDown();
+								}}
+								className="search-icon side-search"
+								src={searchImage}
+								alt="Search-Icon"
+							/>
 						</div>
 					)}
 				</div>
@@ -108,10 +135,10 @@ const Header = () => {
 
 					{activeSearch && (
 						<>
-							<input className="activeSearch" type="text"></input>
+							<input className="activeSearch nav-link" type="text"></input>
 							<img
 								onClick={handleActiveSearch}
-								className="active-search-icon"
+								className="active-search-icon nav-link"
 								src={searchImage}
 								alt="Search-Icon"
 							/>
@@ -120,7 +147,7 @@ const Header = () => {
 					{!activeSearch && (
 						<img
 							onClick={handleActiveSearch}
-							className="search-icon"
+							className="search-icon nav-link"
 							src={searchImage}
 							alt="Search-Icon"
 						/>
