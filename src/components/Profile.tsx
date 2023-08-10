@@ -10,6 +10,8 @@ import { DBUserInsert } from '../functions/DBInsertUser';
 import { DBUpdate } from '../functions/DBUpdate';
 import { getUserStatus } from '../functions/DBGetUserStatus';
 
+// BUG page reload causes infintie loading because component is already mounted?
+
 const Profile = () => {
 	const { user, setUser } = useContext(UserContext);
 	const navigate = useNavigate();
@@ -20,6 +22,35 @@ const Profile = () => {
 
 	const newPfpImage = () => {
 		// Upload new picture
+	};
+
+	const fetchUserStatus = async () => {
+		console.log('resource watch');
+
+		try {
+			const userStatus = await getUserStatus();
+			setUser(userStatus);
+			if (user) {
+				setPfpPicture(user.user_metadata.avatar_url);
+				const DBCall = await DBGetUserData(user.id);
+				if (DBCall) {
+					setUserData(DBCall.data);
+				}
+
+				if (!DBCall) {
+					DBUserInsert({
+						user_id: user.id,
+						title: 'Update Your Title',
+						username: user.user_metadata.full_name,
+					});
+					setName(user.user_metadata.full_name);
+					setTitle('Update Your Title');
+				}
+			}
+		} catch (error) {
+			errorThrow(`Error fetching user status: ${error}`);
+			setUser(null);
+		}
 	};
 
 	const saveInfoToDB = async () => {
@@ -68,6 +99,7 @@ const Profile = () => {
 			);
 			titleInputEl.style.border = '2px solid red';
 		}
+		fetchUserStatus();
 	};
 
 	const SignOut = async () => {
@@ -76,41 +108,18 @@ const Profile = () => {
 		navigate('/');
 		location.reload();
 	};
-	useEffect(() => {
-		const fetchUserStatus = async () => {
-			try {
-				const userStatus = await getUserStatus();
-				setUser(userStatus);
-				if (user) {
-					setPfpPicture(user.user_metadata.avatar_url);
-					const DBCall = await DBGetUserData(user.id);
-					if (DBCall) {
-						setUserData(DBCall.data);
-					}
 
-					if (DBCall === false) {
-						DBUserInsert({
-							user_id: user.id,
-							title: 'Update Your Title',
-							username: user.user_metadata.full_name,
-						});
-						setName(user.user_metadata.full_name);
-						setTitle('Update Your Title');
-					}
-				}
-			} catch (error) {
-				errorThrow(`Error fetching user status: ${error}`);
-				setUser(null);
-			}
-		};
-		fetchUserStatus();
-	}, [user]);
 	useEffect(() => {
-		if (userData != null) {
+		fetchUserStatus();
+	}, []);
+
+	useEffect(() => {
+		if (userData) {
 			setName(userData.username);
 			setTitle(userData.title);
 		}
 	}, [userData]);
+
 	return (
 		<div className="profile-container">
 			{pfpPicture && userData && (
