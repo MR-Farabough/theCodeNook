@@ -9,6 +9,17 @@ const Nav = () => {
 	const [devPracticeMenu, setDevPracticeMenu] = useState<Boolean>(false);
 
 	const handleMenuToggle = (menu: string) => {
+		const menus = [
+			setDsaMenu,
+			setWebDevMenu,
+			setLangugageMenu,
+			setDbMenu,
+			setDevPracticeMenu,
+		];
+		menus.forEach((menu) => {
+			menu(false);
+		});
+
 		switch (menu) {
 			case 'dsa':
 				dsaMenu ? setDsaMenu(false) : setDsaMenu(true);
@@ -30,11 +41,7 @@ const Nav = () => {
 
 	return (
 		<nav className="sub-nav">
-			<div
-				onMouseEnter={() => handleMenuToggle('dsa')}
-				onMouseLeave={() => handleMenuToggle('dsa')}
-				className="sub-menu"
-			>
+			<div onClick={() => handleMenuToggle('dsa')} className="sub-menu">
 				<p className="subMenu-topic">Data Structures & Algorithms</p>
 				{dsaMenu && (
 					<div className="subNav-dropdown">
@@ -51,11 +58,7 @@ const Nav = () => {
 				)}
 			</div>
 
-			<div
-				onMouseEnter={() => handleMenuToggle('webDev')}
-				onMouseLeave={() => handleMenuToggle('webDev')}
-				className="sub-menu"
-			>
+			<div onClick={() => handleMenuToggle('webDev')} className="sub-menu">
 				<p className="subMenu-topic">Web Development</p>
 				{webDevMenu && (
 					<div className="subNav-dropdown">
@@ -71,11 +74,7 @@ const Nav = () => {
 				)}
 			</div>
 
-			<div
-				onMouseLeave={() => handleMenuToggle('languages')}
-				onMouseEnter={() => handleMenuToggle('languages')}
-				className="sub-menu"
-			>
+			<div onClick={() => handleMenuToggle('languages')} className="sub-menu">
 				<p className="subMenu-topic">Languages</p>
 				{languageMenu && (
 					<div className="subNav-dropdown">
@@ -91,11 +90,7 @@ const Nav = () => {
 				)}
 			</div>
 
-			<div
-				onMouseLeave={() => handleMenuToggle('database')}
-				onMouseEnter={() => handleMenuToggle('database')}
-				className="sub-menu"
-			>
+			<div onClick={() => handleMenuToggle('database')} className="sub-menu">
 				<p className="subMenu-topic">Database Management</p>
 				{dbMenu && (
 					<div className="subNav-dropdown">
@@ -107,8 +102,7 @@ const Nav = () => {
 			</div>
 
 			<div
-				onMouseLeave={() => handleMenuToggle('devPractices')}
-				onMouseEnter={() => handleMenuToggle('devPractices')}
+				onClick={() => handleMenuToggle('devPractices')}
 				className="sub-menu"
 			>
 				<p className="subMenu-topic">Development Practices</p>
