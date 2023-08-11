@@ -2,13 +2,12 @@ import { useState } from 'react';
 import '../styles/Header.css';
 import Nav from './Nav';
 import searchImage from '../assets/search.png';
-import { getUserStatus } from '../functions/DBGetUserStatus';
 import { useNavigate } from 'react-router-dom';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { UserContext } from '../Router';
 
 const Header = () => {
-	const { user, setUser } = useContext(UserContext);
+	const { user } = useContext(UserContext);
 	const [activeSearch, setActiveSearch] = useState<boolean>(false);
 	const [activeDropDown, setDropDownStatus] = useState<boolean>(false);
 
@@ -41,18 +40,6 @@ const Header = () => {
 	};
 
 	const navigate = useNavigate();
-	useEffect(() => {
-		const fetchUserStatus = async () => {
-			try {
-				const userStatus = await getUserStatus();
-				setUser(userStatus);
-			} catch (error) {
-				console.error('Error fetching user status:', error);
-				setUser(null);
-			}
-		};
-		fetchUserStatus();
-	}, []);
 
 	return (
 		<>
