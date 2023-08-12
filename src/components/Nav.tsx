@@ -8,6 +8,19 @@ const Nav = () => {
 	const [dbMenu, setDbMenu] = useState<Boolean>(false);
 	const [devPracticeMenu, setDevPracticeMenu] = useState<Boolean>(false);
 	const [showNav, setShowNav] = useState(true);
+	const menus = [
+		setDsaMenu,
+		setWebDevMenu,
+		setLangugageMenu,
+		setDbMenu,
+		setDevPracticeMenu,
+	];
+
+	const closeWindows = () => {
+		menus.forEach((menu) => {
+			menu(false);
+		});
+	};
 
 	const windowTest = () => {
 		const windowSize = window.innerWidth;
@@ -23,34 +36,28 @@ const Nav = () => {
 		windowTest();
 	}, []);
 
-	const handleMenuToggle = (menu: string) => {
-		const menus = [
-			setDsaMenu,
-			setWebDevMenu,
-			setLangugageMenu,
-			setDbMenu,
-			setDevPracticeMenu,
-		];
-		menus.forEach((menu) => {
-			menu(false);
-		});
-
-		switch (menu) {
-			case 'dsa':
-				dsaMenu ? setDsaMenu(false) : setDsaMenu(true);
-				break;
-			case 'webDev':
-				webDevMenu ? setWebDevMenu(false) : setWebDevMenu(true);
-				break;
-			case 'languages':
-				languageMenu ? setLangugageMenu(false) : setLangugageMenu(true);
-				break;
-			case 'database':
-				dbMenu ? setDbMenu(false) : setDbMenu(true);
-				break;
-			case 'devPractices':
-				devPracticeMenu ? setDevPracticeMenu(false) : setDevPracticeMenu(true);
-				break;
+	const handleMenuToggle = (menu: string | null) => {
+		closeWindows();
+		if (menu) {
+			switch (menu) {
+				case 'dsa':
+					dsaMenu ? setDsaMenu(false) : setDsaMenu(true);
+					break;
+				case 'webDev':
+					webDevMenu ? setWebDevMenu(false) : setWebDevMenu(true);
+					break;
+				case 'languages':
+					languageMenu ? setLangugageMenu(false) : setLangugageMenu(true);
+					break;
+				case 'database':
+					dbMenu ? setDbMenu(false) : setDbMenu(true);
+					break;
+				case 'devPractices':
+					devPracticeMenu
+						? setDevPracticeMenu(false)
+						: setDevPracticeMenu(true);
+					break;
+			}
 		}
 	};
 
