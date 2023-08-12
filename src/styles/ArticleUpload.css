@@ -1,0 +1,20 @@
+/* BUG WINDOW RESIZING NIGHTMARE! */
+
+.upload-article-container {
+	width: 40%;
+}
+
+.top-hero-article {
+	display: flex;
+	justify-content: space-between;
+}
+
+.title-input,
+.signature-input {
+	width: 30em;
+	margin: 10px;
+}
+
+#category {
+	margin-left: 10px;
+}

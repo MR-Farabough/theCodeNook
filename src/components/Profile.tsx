@@ -9,6 +9,7 @@ import { errorThrow } from '../functions/errorThrow';
 import { DBUserInsert } from '../functions/DBInsertUser';
 import { DBUpdate } from '../functions/DBUpdate';
 import { getUserStatus } from '../functions/DBGetUserStatus';
+import ArticleUpload from './ArticleUpload';
 
 // BUG page reload causes infintie loading because component is already mounted?
 
@@ -19,6 +20,7 @@ const Profile = () => {
 	const [userData, setUserData] = useState<any>(null);
 	const [name, setName] = useState<string | null>(null);
 	const [title, setTitle] = useState<string | null>(null);
+	const [uploadModal, setUploadModal] = useState<Boolean>(false);
 
 	const newPfpImage = () => {
 		// Upload new picture
@@ -158,13 +160,52 @@ const Profile = () => {
 						<button onClick={newPfpImage} className="upload-new-image">
 							Upload New Profile Picture
 						</button>
-						<button className="profile-btn" onClick={saveInfoToDB}>
-							Save
+						<button
+							className="profile-btn upload-article-btn"
+							onClick={saveInfoToDB}
+						>
+							Save Profile Info
 						</button>
 						<button className="profile-btn" onClick={SignOut}>
 							Sign Out
 						</button>
+						{!uploadModal && (
+							<button
+								className="profile-btn upload-article-btn"
+								onClick={() => setUploadModal(true)}
+							>
+								Write an Article
+							</button>
+						)}
+						{uploadModal && (
+							<button
+								className="profile-btn upload-article-btn"
+								onClick={() => {
+									const userResponse = prompt(
+										`
+*WARNING*
+In result of closing the article you will lose all progress
+Are you sure you want to do this?
+
+(y)es or (n)
+`
+									);
+									if (
+										userResponse?.toLowerCase() == 'yes' ||
+										userResponse?.toLowerCase() == 'y'
+									) {
+										return setUploadModal(false);
+									} else {
+										return null;
+									}
+								}}
+							>
+								End Writing
+							</button>
+						)}
+						<hr />
 					</div>
+					{uploadModal && <ArticleUpload />}
 				</>
 			)}
 			{!pfpPicture && !name && !title && <Loading />}
