@@ -1,6 +1,6 @@
 import supabase from "../lib/supabaseClient";
 
-export const DBGetUserData = async (userID:string) => {
+export async function DBGetUserData(userID:string) {
   let userObj;
   let userInDB = false;
   const DBResponse = await supabase

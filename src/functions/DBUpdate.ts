@@ -1,7 +1,7 @@
 import supabase from "../lib/supabaseClient"
 import { errorThrow } from "./errorThrow"
 
-export const DBUpdate = async (userObj:{ title: string, username: string }, userID:string) => {
+export async function DBUpdate(userObj:{ title: string, username: string }, userID:string) {
   const DBUpdate = await supabase
     .from('User-data')
     .update(userObj)

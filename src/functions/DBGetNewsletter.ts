@@ -1,7 +1,7 @@
 import supabase from "../lib/supabaseClient";
 import { errorThrow } from "./errorThrow";
 
-export const DBGetNewsletter = async () => {
+export async function DBGetNewsletter() {
   const DBReturn = await supabase
     .from('Newsletters')
     .select('title, article, signature')
