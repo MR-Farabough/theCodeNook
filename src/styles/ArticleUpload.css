@@ -1,20 +1,45 @@
-/* BUG WINDOW RESIZING NIGHTMARE! */
-
 .upload-article-container {
-	width: 40%;
+	width: 60%;
+	background-color: #a4c3b2;
+	padding: 15px;
+	padding-right: 10px;
+	border-radius: 15px;
 }
 
 .top-hero-article {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 }
 
 .title-input,
-.signature-input {
-	width: 30em;
+.signature-input,
+#category {
 	margin: 10px;
 }
 
-#category {
+.article-input-area {
+	margin-top: 10px;
+	width: 100%;
+}
+
+.write-article {
+	background-color: #cce3de;
 	margin-left: 10px;
+}
+
+@media (max-width: 1050px) {
+	.top-hero-article {
+		flex-direction: column;
+	}
+	.title-input,
+	.signature-input,
+	.article-input-area,
+	#category {
+		max-width: 90%;
+	}
+
+	#category {
+		height: 35px;
+		width: 94%;
+	}
 }

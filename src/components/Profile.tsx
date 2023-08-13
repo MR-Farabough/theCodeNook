@@ -204,8 +204,11 @@ Are you sure you want to do this?
 							</button>
 						)}
 						<hr />
+						<br />
 					</div>
-					{uploadModal && <ArticleUpload />}
+					{uploadModal && (
+						<ArticleUpload user={userData} closeModal={setUploadModal} />
+					)}
 				</>
 			)}
 			{!pfpPicture && !name && !title && <Loading />}
