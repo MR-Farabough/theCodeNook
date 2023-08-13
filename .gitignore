@@ -22,3 +22,8 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# Delete later placeholders for testing
+
+fooFunc.ts
+__tests__

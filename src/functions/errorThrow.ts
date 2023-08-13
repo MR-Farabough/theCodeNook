@@ -1,4 +1,4 @@
-export const errorThrow = (message:string) => {
+export function errorThrow(message:string) {
   console.error(
    `
    THE CODE NOOK: Error Identified!
