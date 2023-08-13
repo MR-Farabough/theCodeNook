@@ -1,16 +1,30 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../styles/Header.css';
 import Nav from './Nav';
 import searchImage from '../assets/search.png';
-import { getUserStatus } from '../functions/DBGetUserStatus';
 import { useNavigate } from 'react-router-dom';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { UserContext } from '../Router';
 
 const Header = () => {
-	const { user, setUser } = useContext(UserContext);
+	const { user } = useContext(UserContext);
 	const [activeSearch, setActiveSearch] = useState<boolean>(false);
 	const [activeDropDown, setDropDownStatus] = useState<boolean>(false);
+	const [activeNav, setActiveNav] = useState(true);
+	const navTest = () => {
+		const windowSize = window.innerWidth;
+		if (windowSize < 750) {
+			setActiveNav(true);
+		} else {
+			setActiveNav(false);
+		}
+	};
+
+	window.addEventListener('resize', navTest);
+
+	useEffect(() => {
+		navTest();
+	}, []);
 
 	const handleDockedSearch = () => {
 		// Handle Search
@@ -41,18 +55,6 @@ const Header = () => {
 	};
 
 	const navigate = useNavigate();
-	useEffect(() => {
-		const fetchUserStatus = async () => {
-			try {
-				const userStatus = await getUserStatus();
-				setUser(userStatus);
-			} catch (error) {
-				console.error('Error fetching user status:', error);
-				setUser(null);
-			}
-		};
-		fetchUserStatus();
-	}, []);
 
 	return (
 		<>
@@ -100,6 +102,60 @@ const Header = () => {
 								src={searchImage}
 								alt="Search-Icon"
 							/>
+							{activeNav && (
+								<>
+									<p
+										onClick={() => {
+											navigate('/data-structures-&-algorithms');
+											handleAnimation();
+											handleDropDown();
+										}}
+										className="subMenu-topic"
+									>
+										Data Structures & Algorithms
+									</p>
+									<p
+										onClick={() => {
+											navigate('/web-development');
+											handleAnimation();
+											handleDropDown();
+										}}
+										className="subMenu-topic"
+									>
+										Web Development
+									</p>
+									<p
+										onClick={() => {
+											navigate('/languages');
+											handleAnimation();
+											handleDropDown();
+										}}
+										className="subMenu-topic"
+									>
+										Languages
+									</p>
+									<p
+										onClick={() => {
+											navigate('/database-management');
+											handleAnimation();
+											handleDropDown();
+										}}
+										className="subMenu-topic"
+									>
+										Database Management
+									</p>
+									<p
+										onClick={() => {
+											navigate('/development-practices');
+											handleAnimation();
+											handleDropDown();
+										}}
+										className="subMenu-topic"
+									>
+										Development Practices
+									</p>
+								</>
+							)}
 						</div>
 					)}
 				</div>

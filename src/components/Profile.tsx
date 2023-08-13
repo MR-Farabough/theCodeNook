@@ -9,6 +9,9 @@ import { errorThrow } from '../functions/errorThrow';
 import { DBUserInsert } from '../functions/DBInsertUser';
 import { DBUpdate } from '../functions/DBUpdate';
 import { getUserStatus } from '../functions/DBGetUserStatus';
+import ArticleUpload from './ArticleUpload';
+
+// BUG page reload causes infintie loading because component is already mounted?
 
 const Profile = () => {
 	const { user, setUser } = useContext(UserContext);
@@ -17,9 +20,39 @@ const Profile = () => {
 	const [userData, setUserData] = useState<any>(null);
 	const [name, setName] = useState<string | null>(null);
 	const [title, setTitle] = useState<string | null>(null);
+	const [uploadModal, setUploadModal] = useState<Boolean>(false);
 
 	const newPfpImage = () => {
 		// Upload new picture
+	};
+
+	const fetchUserStatus = async () => {
+		console.log('resource watch');
+
+		try {
+			const userStatus = await getUserStatus();
+			setUser(userStatus);
+			if (user) {
+				setPfpPicture(user.user_metadata.avatar_url);
+				const DBCall = await DBGetUserData(user.id);
+				if (DBCall) {
+					setUserData(DBCall.data);
+				}
+
+				if (!DBCall) {
+					DBUserInsert({
+						user_id: user.id,
+						title: 'Update Your Title',
+						username: user.user_metadata.full_name,
+					});
+					setName(user.user_metadata.full_name);
+					setTitle('Update Your Title');
+				}
+			}
+		} catch (error) {
+			errorThrow(`Error fetching user status: ${error}`);
+			setUser(null);
+		}
 	};
 
 	const saveInfoToDB = async () => {
@@ -68,6 +101,7 @@ const Profile = () => {
 			);
 			titleInputEl.style.border = '2px solid red';
 		}
+		fetchUserStatus();
 	};
 
 	const SignOut = async () => {
@@ -76,41 +110,18 @@ const Profile = () => {
 		navigate('/');
 		location.reload();
 	};
-	useEffect(() => {
-		const fetchUserStatus = async () => {
-			try {
-				const userStatus = await getUserStatus();
-				setUser(userStatus);
-				if (user) {
-					setPfpPicture(user.user_metadata.avatar_url);
-					const DBCall = await DBGetUserData(user.id);
-					if (DBCall) {
-						setUserData(DBCall.data);
-					}
 
-					if (DBCall === false) {
-						DBUserInsert({
-							user_id: user.id,
-							title: 'Update Your Title',
-							username: user.user_metadata.full_name,
-						});
-						setName(user.user_metadata.full_name);
-						setTitle('Update Your Title');
-					}
-				}
-			} catch (error) {
-				errorThrow(`Error fetching user status: ${error}`);
-				setUser(null);
-			}
-		};
-		fetchUserStatus();
-	}, [user]);
 	useEffect(() => {
-		if (userData != null) {
+		fetchUserStatus();
+	}, []);
+
+	useEffect(() => {
+		if (userData) {
 			setName(userData.username);
 			setTitle(userData.title);
 		}
 	}, [userData]);
+
 	return (
 		<div className="profile-container">
 			{pfpPicture && userData && (
@@ -149,13 +160,55 @@ const Profile = () => {
 						<button onClick={newPfpImage} className="upload-new-image">
 							Upload New Profile Picture
 						</button>
-						<button className="profile-btn" onClick={saveInfoToDB}>
-							Save
+						<button
+							className="profile-btn upload-article-btn"
+							onClick={saveInfoToDB}
+						>
+							Save Profile Info
 						</button>
 						<button className="profile-btn" onClick={SignOut}>
 							Sign Out
 						</button>
+						{!uploadModal && (
+							<button
+								className="profile-btn upload-article-btn"
+								onClick={() => setUploadModal(true)}
+							>
+								Write an Article
+							</button>
+						)}
+						{uploadModal && (
+							<button
+								className="profile-btn upload-article-btn"
+								onClick={() => {
+									const userResponse = prompt(
+										`
+*WARNING*
+In result of closing the article you will lose all progress
+Are you sure you want to do this?
+
+(y)es or (n)
+`
+									);
+									if (
+										userResponse?.toLowerCase() == 'yes' ||
+										userResponse?.toLowerCase() == 'y'
+									) {
+										return setUploadModal(false);
+									} else {
+										return null;
+									}
+								}}
+							>
+								End Writing
+							</button>
+						)}
+						<hr />
+						<br />
 					</div>
+					{uploadModal && (
+						<ArticleUpload user={userData} closeModal={setUploadModal} />
+					)}
 				</>
 			)}
 			{!pfpPicture && !name && !title && <Loading />}

@@ -1,6 +1,6 @@
 import supabase from "../lib/supabaseClient";
 
-export const getUserStatus = async () => {
+export async function getUserStatus() {
   try {
     const results = await supabase.auth.getUser();
     return results.data.user;

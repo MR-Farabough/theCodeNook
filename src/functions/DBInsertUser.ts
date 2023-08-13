@@ -1,11 +1,11 @@
 import supabase from "../lib/supabaseClient";
 import { errorThrow } from "./errorThrow";
 
-export const DBUserInsert = async (newUser:{
+export async function DBUserInsert(newUser:{
   user_id: string,
   title: string,
   username: string,
-}) => {
+}) {
   const userInsert = await supabase.from('User-data').insert({
     uuid: newUser.user_id,
     title: newUser.title,

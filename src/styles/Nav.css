@@ -24,6 +24,11 @@
 .subMenu-topic {
 	padding: 2px;
 	border-radius: 5px;
+	cursor: pointer;
+}
+
+.subMenu-topic:hover {
+	color: white;
 }
 
 .subNav-dropdown {
