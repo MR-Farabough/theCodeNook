@@ -10,8 +10,7 @@ import { DBUserInsert } from '../functions/DBInsertUser';
 import { DBUpdate } from '../functions/DBUpdate';
 import { getUserStatus } from '../functions/DBGetUserStatus';
 import ArticleUpload from './ArticleUpload';
-
-// BUG page reload causes infintie loading because component is already mounted?
+import PrevArticles from './PrevArticles';
 
 const Profile = () => {
 	const { user, setUser } = useContext(UserContext);
@@ -28,13 +27,12 @@ const Profile = () => {
 
 	const fetchUserStatus = async () => {
 		console.log('resource watch');
-
 		try {
 			const userStatus = await getUserStatus();
 			setUser(userStatus);
-			if (user) {
-				setPfpPicture(user.user_metadata.avatar_url);
-				const DBCall = await DBGetUserData(user.id);
+			if (userStatus) {
+				setPfpPicture(userStatus.user_metadata.avatar_url);
+				const DBCall = await DBGetUserData(userStatus.id);
 				if (DBCall) {
 					setUserData(DBCall.data);
 				}
@@ -43,9 +41,9 @@ const Profile = () => {
 					DBUserInsert({
 						user_id: user.id,
 						title: 'Update Your Title',
-						username: user.user_metadata.full_name,
+						username: 'Update Your Name',
 					});
-					setName(user.user_metadata.full_name);
+					setName('Update Your Name');
 					setTitle('Update Your Title');
 				}
 			}
@@ -203,12 +201,16 @@ Are you sure you want to do this?
 								End Writing
 							</button>
 						)}
-						<hr />
 						<br />
 					</div>
 					{uploadModal && (
 						<ArticleUpload user={userData} closeModal={setUploadModal} />
 					)}
+					<div className="prev-articles">
+						<h3 className="hero-text">Previous Articles</h3>
+						<hr />
+						<PrevArticles user={userData} />
+					</div>
 				</>
 			)}
 			{!pfpPicture && !name && !title && <Loading />}
