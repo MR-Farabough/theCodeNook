@@ -65,11 +65,18 @@
 	display: flex;
 }
 
+.prev-articles {
+	width: 43em;
+}
+
 @media (max-width: 750px) {
 	.user-info {
 		flex-direction: column;
 	}
 	.profile-btns {
 		flex-direction: column;
+	}
+	.prev-articles {
+		width: 15em;
 	}
 }
